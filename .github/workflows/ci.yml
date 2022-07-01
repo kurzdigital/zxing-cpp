@@ -61,7 +61,7 @@ jobs:
       with:
         ref: ${{github.ref}}
     
-    - name: Build
+    - name: Build the ZXingCpp.xcframework
       shell: sh
       working-directory: ${{runner.workspace}}/${{github.event.repository.name}}/wrappers/ios
       run: ./build-release.sh
@@ -69,10 +69,10 @@ jobs:
     - name: Upload .xcframework
       uses: actions/upload-artifact@v3
       with:
-        name: ZXingCpp.xcframework
+        name: ios-artifacts
         path: ${{runner.workspace}}/${{github.event.repository.name}}/wrappers/ios/ZXingCpp.xcframework
         
-    - name: Build
+    - name: Build the demo app
       shell: sh
       working-directory: ${{runner.workspace}}/${{github.event.repository.name}}/wrappers/ios/demo
       run: xcodebuild build -scheme demo -sdk "iphonesimulator"
