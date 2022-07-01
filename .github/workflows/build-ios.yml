@@ -14,10 +14,23 @@ jobs:
       working-directory: ${{runner.workspace}}/${{github.event.repository.name}}/wrappers/ios
       run: ./build-release.sh
       
+    - name: Upload .xcframework
+      uses: actions/upload-artifact@v3
+      with:
+        name: ZXingCpp.xcframework
+        path: ${{runner.workspace}}/${{github.event.repository.name}}/wrappers/ios/ZXingCpp.xcframework
+      
   build-demo:
     needs: build-framework
     runs-on: macos-latest
     steps:
+    - uses: actions/checkout@v3
+      with:
+        ref: ${{ github.ref }}
+    - uses: actions/download-artifact@v2
+      with:
+        name: ZXingCpp.xcframework
+        path: ${{runner.workspace}}/${{github.event.repository.name}}/wrappers/ios/
     - name: Build
       shell: sh
       working-directory: ${{runner.workspace}}/${{github.event.repository.name}}/wrappers/ios/demo
