@@ -12,4 +12,4 @@ jobs:
     - name: Build
       shell: sh
       working-directory: ${{runner.workspace}}
-      run: ls wrappers
+      run: pwd
