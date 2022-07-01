@@ -30,7 +30,7 @@ jobs:
     - uses: actions/download-artifact@v2
       with:
         name: ZXingCpp.xcframework
-        path: ${{runner.workspace}}/${{github.event.repository.name}}/wrappers/ios/
+        path: ${{runner.workspace}}/${{github.event.repository.name}}/wrappers/ios/ZXingCpp.xcframework
     - name: Build
       shell: sh
       working-directory: ${{runner.workspace}}/${{github.event.repository.name}}/wrappers/ios/demo
