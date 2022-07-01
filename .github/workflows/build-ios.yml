@@ -2,7 +2,7 @@ name: build-ios
 on: push
     
 jobs:
-  build:
+  build-framework:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v3
@@ -13,3 +13,4 @@ jobs:
       shell: sh
       working-directory: ${{runner.workspace}}/${{github.event.repository.name}}/wrappers/ios
       run: ./build-release.sh
+      
