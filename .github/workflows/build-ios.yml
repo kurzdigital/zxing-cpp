@@ -10,6 +10,6 @@ jobs:
         ref: ${{ github.ref }}
     
     - name: Build
-      shell: bash
-      working-directory: ${{runner.workspace}}/wrappers/ios
-      run: ./build-release
+      shell: sh
+      working-directory: ${{runner.workspace}}
+      run: ls wrappers
