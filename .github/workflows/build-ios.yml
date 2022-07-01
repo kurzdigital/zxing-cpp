@@ -11,5 +11,5 @@ jobs:
     
     - name: Build
       shell: sh
-      working-directory: ${{runner.workspace}}/${{github.event.repository.name}}
-      run: ls
+      working-directory: ${{runner.workspace}}/${{github.event.repository.name}}/wrappers/ios
+      run: ./build-release.sh
