@@ -11,5 +11,5 @@ jobs:
     
     - name: Build
       shell: sh
-      working-directory: ${{runner.workspace}}
+      working-directory: ${{runner.workspace}}/${{github.event.repository.name}}
       run: ls
